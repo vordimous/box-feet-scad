@@ -13,7 +13,14 @@ module base() {
             cube([slot, shN, shN+slot]);
             cube([shN, slot, shN+slot]);
         }
-        
+    }
+}
+module screwGap(){   
+    translate([23,18, 10]){
+        sphere(r = 10);
+    }
+    translate([18,23, 10]){
+        sphere(r = 10);
     }
 }
 
@@ -56,7 +63,13 @@ module foot(){
     }
 }
 
-base();
+
+
+difference(){
+    base();
+    screwGap();
+    
+}
 translate([0,0,-legH]){
     pedistal();
     foot();
